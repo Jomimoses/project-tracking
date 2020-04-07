@@ -31,13 +31,16 @@ mongoose
     process.exit();
   });
 
+mongoose.set("useFindAndModify", false);
+
 // define a simple route
 app.get("/", (req, res) => {
   res.json({ message: "Welcome to Project Management Application." });
 });
 
 // Require Base routes
-// require("./src/router/index")(app);
+require('./src/router/index')(app);
+
 
 // listen for requests
 app.listen(3000, () => {
