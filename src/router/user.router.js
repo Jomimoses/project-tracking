@@ -14,4 +14,3 @@ router.put("/:id", user.updateUser);
 router.delete("/:id", user.deleteUser);
 
 module.exports = router;
-``;

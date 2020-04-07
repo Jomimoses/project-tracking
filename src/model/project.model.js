@@ -1,43 +1,38 @@
 const mongoose = require("mongoose");
 
-const userSchema = new mongoose.Schema(
+const projectSchema = new mongoose.Schema(
   {
-    userName: {
+    projectName: {
       type: String,
       required: true,
       trim: true,
     },
-    position: {
+    technology: {
       type: String,
       required: true,
       trim: true,
     },
-    email: {
+    managerId: {
       type: String,
       required: true,
       trim: true,
     },
-    projectId: {
-      type: Array,
-      required: true,
-      trim: true,
-    },
-    phoneNumber: {
-      type: Number,
-      required: true,
-      trim: true,
-    },
-    gender: {
+    clientId: {
       type: String,
       required: true,
       trim: true,
     },
-    dateOfBirth: {
+    projectCompleted: {
+      type: Boolean,
+      default: false,
+      trim: true,
+    },
+    startDate: {
       type: String,
       required: true,
       trim: true,
     },
-    dateOfJoining: {
+    endDate: {
       type: String,
       required: true,
       trim: true,
@@ -53,4 +48,4 @@ const userSchema = new mongoose.Schema(
     toJSON: { virtuals: true },
   }
 );
-module.exports = mongoose.model("users", userSchema);
+module.exports = mongoose.model("projects", projectSchema);
