@@ -7,6 +7,11 @@ const userSchema = new mongoose.Schema(
       required: true,
       trim: true,
     },
+    password: {
+      type: String,
+      required: true,
+      trim: true,
+    },
     position: {
       type: String,
       required: true,
@@ -19,7 +24,6 @@ const userSchema = new mongoose.Schema(
     },
     projectId: {
       type: Array,
-      required: true,
       trim: true,
     },
     phoneNumber: {
