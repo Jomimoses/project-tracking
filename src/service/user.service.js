@@ -11,7 +11,19 @@ exports.createUser = async (body) => {
 };
 
 exports.getAllUser = async () => {
-  let users = await baseDao.findAll(user);
+  const params = [
+    { $match: { isDeleted: false } },
+    {
+      $lookup: {
+        from: "projects",
+        localField: "projectId",
+        foreignField: "_id",
+        as: "projects",
+      },
+    },
+  ];
+
+  let users = await baseDao.findAll(user, params);
   if (!users) {
     return response.error();
   }

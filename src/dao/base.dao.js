@@ -1,5 +1,7 @@
 /* eslint-disable no-empty */
 
+const tempParam = [{ $match: { isDeleted: false } }];
+
 /**
  * create document
  * @param schema
@@ -17,8 +19,7 @@ exports.create = async (schema, body) => {
  * get all documents
  * @param schema
  */
-exports.findAll = async (schema) => {
-  const params = [{ $match: { isDeleted: false } }];
+exports.findAll = async (schema, params = tempParam) => {
   try {
     return await schema.aggregate(params).sort({ createdAt: -1 });
   } catch (err) {}
